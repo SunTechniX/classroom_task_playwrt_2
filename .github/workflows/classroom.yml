@@ -1,0 +1,42 @@
+name: Проверка задания: Практика по локаторам
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+permissions:
+  checks: write
+  actions: read
+  contents: read
+
+jobs:
+  grade:
+    name: "Автопроверка задания"
+    runs-on: ubuntu-22.04
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout кода
+        uses: actions/checkout@v4
+
+      - name: Установка Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Установка зависимостей
+        run: |
+          pip install -r requirements.txt
+          playwright install-deps
+          playwright install chromium
+
+      - name: 🔍 Проверка линтеров
+        run: python tools/check_linters.py
+        continue-on-error: true
+
+      - name: 📊 Генерация итогового отчёта
+        run: python tools/generate_summary.py
+        env:
+          GITHUB_STEP_SUMMARY: ${{ github.step_summary }}
