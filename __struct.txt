@@ -1,0 +1,23 @@
+task_25_practice/
+├── .github/
+│   ├── workflows/
+│   │   └── classroom.yml
+│   ├── tasks.json
+│   └── autograding.json
+├── tests/
+│   ├── test_structure.py
+│   ├── test_syntax.py
+│   └── conftest.py
+├── tools/
+│   ├── generate_summary.py
+│   └── check_linters.py
+├── requirements.txt
+├── .flake8
+├── .pylintrc
+├── student_template/
+│   └── practice_locators/
+│       ├── task1_click.py
+│       ├── task2_form.py
+│       ├── task3_visibility.py
+│       └── README.md
+└── README.md
