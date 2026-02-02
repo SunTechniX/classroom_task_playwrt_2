@@ -1,0 +1,36 @@
+{
+  "tasks": [
+    {
+      "id": "structure",
+      "name": "Структура проекта",
+      "max_score": 10,
+      "description": "Наличие всех файлов и папок",
+      "checks": ["folder_exists", "files_exist"]
+    },
+    {
+      "id": "syntax",
+      "name": "Синтаксис и логика",
+      "max_score": 60,
+      "description": "Корректный код, использование методов поиска элементов",
+      "checks": [
+        "task1_imports",
+        "task1_locators",
+        "task1_button_click",
+        "task2_imports",
+        "task2_form_locators",
+        "task2_clear",
+        "task3_imports",
+        "task3_expect_visible"
+      ]
+    },
+    {
+      "id": "linters",
+      "name": "Стиль кода",
+      "max_score": 10,
+      "description": "Соблюдение стандартов кодирования",
+      "checks": ["flake8_score", "pylint_score"]
+    }
+  ],
+  "max_total_score": 80,
+  "passing_score": 60
+}
